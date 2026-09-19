@@ -19,11 +19,11 @@ export const PIN = {
 };
 
 export const CHAPTERS = [
-    { id: '01', name: 'The Promise', selector: '#hero' },
-    { id: '02', name: 'The Paperwork', selector: '#about' },
-    { id: '03', name: 'Georgia', selector: '#georgia-journey' },
-    { id: '04', name: 'The Journey', selector: '#georgia-journey' },
-    { id: '05', name: 'The Signature', selector: '#services' },
-    { id: '06', name: 'Your Story', selector: '#reviews' },
-    { id: '07', name: 'Begin', selector: '#begin' },
+    { id: '01', name: window.__I18N?.chapters?.promise || 'The Promise', selector: '#hero' },
+    { id: '02', name: window.__I18N?.chapters?.paperwork || 'The Paperwork', selector: '#about' },
+    { id: '03', name: window.__I18N?.chapters?.georgia || 'Georgia', selector: '#georgia-journey' },
+    { id: '04', name: window.__I18N?.chapters?.journey || 'The Journey', selector: '#georgia-journey' },
+    { id: '05', name: window.__I18N?.chapters?.signature || 'The Signature', selector: '#services' },
+    { id: '06', name: window.__I18N?.chapters?.story || 'Your Story', selector: '#reviews' },
+    { id: '07', name: window.__I18N?.chapters?.begin || 'Begin', selector: '#begin' },
 ];

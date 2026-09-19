@@ -1,17 +1,11 @@
 <footer class="footer">
     <div class="footer__top">
-        <a class="nav__logo" href="{{ route('home') }}">
-            <span>Easy Marriage</span>
-            <small>Georgia</small>
+        <a class="nav__logo" href="{{ locale_route('home') }}">
+            <span>{{ __('site.brand.name') }}</span>
+            <small>{{ __('site.brand.place') }}</small>
         </a>
-        <nav class="footer__nav" aria-label="Footer">
-            <a href="{{ url('/') }}#about">About</a>
-            <a href="{{ url('/') }}#services">Services</a>
-            <a href="{{ url('/') }}#process">Process</a>
-            <a href="{{ url('/') }}#documents">Documents</a>
-            <a href="{{ url('/') }}#georgia">Why Georgia</a>
-            <a href="{{ url('/') }}#reviews">Reviews</a>
-            <a href="{{ url('/') }}#faq">FAQ</a>
+        <nav class="footer__nav" aria-label="{{ __('site.nav.footer') }}">
+            @include('partials.nav-links')
         </nav>
         <div class="footer__contact">
             @if (config('site.email'))
@@ -22,25 +16,25 @@
             @endif
             <div class="footer__social">
                 @if (config('site.social.instagram'))
-                    <a href="{{ config('site.social.instagram') }}" rel="noopener noreferrer" target="_blank" aria-label="Instagram">Instagram</a>
+                    <a href="{{ config('site.social.instagram') }}" rel="noopener noreferrer" target="_blank" aria-label="{{ __('site.footer.instagram') }}">{{ __('site.footer.instagram') }}</a>
                 @endif
                 @if (config('site.social.telegram'))
-                    <a href="{{ config('site.social.telegram') }}" rel="noopener noreferrer" target="_blank" aria-label="Telegram">Telegram</a>
+                    <a href="{{ config('site.social.telegram') }}" rel="noopener noreferrer" target="_blank" aria-label="{{ __('site.footer.telegram') }}">{{ __('site.footer.telegram') }}</a>
                 @endif
             </div>
         </div>
     </div>
     <div class="footer__bottom">
-        <p>© {{ date('Y') }} Easy Marriage Georgia</p>
-        <nav aria-label="Legal">
-            <a href="{{ route('privacy') }}">Privacy Policy</a>
-            <a href="{{ route('terms') }}">Terms</a>
-            <a href="{{ route('cookies') }}">Cookie Policy</a>
+        <p>{{ __('site.footer.copy', ['year' => date('Y')]) }}</p>
+        <nav aria-label="{{ __('site.nav.legal') }}">
+            <a href="{{ locale_route('privacy') }}">{{ __('site.footer.privacy') }}</a>
+            <a href="{{ locale_route('terms') }}">{{ __('site.footer.terms') }}</a>
+            <a href="{{ locale_route('cookies') }}">{{ __('site.footer.cookies') }}</a>
         </nav>
-        <p class="footer__phrase">Love has no borders.</p>
+        <p class="footer__phrase">{{ __('site.footer.phrase') }}</p>
     </div>
 </footer>
 
 <button class="sound-toggle" type="button" id="sound-toggle" aria-pressed="false" hidden>
-    Sound off
+    {{ __('site.footer.sound_off') }}
 </button>

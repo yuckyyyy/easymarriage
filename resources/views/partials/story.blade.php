@@ -2,10 +2,10 @@
     <p class="story__num" aria-hidden="true">01</p>
     <div class="story__copy">
         <h2 class="display">
-            <span class="split-line">A beautiful moment</span>
-            <span class="split-line">shouldn’t come with</span>
-            <span class="split-line">a complicated process.</span>
+            <span class="split-line">{{ __('site.story.line_1') }}</span>
+            <span class="split-line">{{ __('site.story.line_2') }}</span>
+            <span class="split-line">{{ __('site.story.line_3') }}</span>
         </h2>
-        <p class="story__after italic-line">For international couples, marriage in Georgia can be done in a day.</p>
+        <p class="story__after italic-line">{{ __('site.story.after') }}</p>
     </div>
 </section>

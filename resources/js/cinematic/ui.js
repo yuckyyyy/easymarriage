@@ -121,7 +121,7 @@ export function initForm() {
             const messages = err.response?.data?.errors;
             error.textContent = messages
                 ? Object.values(messages).flat().join(' ')
-                : 'Something went wrong. Please try again.';
+                : window.__I18N?.formError || 'Something went wrong. Please try again.';
             error.hidden = false;
         }
     });

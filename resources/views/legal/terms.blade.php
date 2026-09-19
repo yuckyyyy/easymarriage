@@ -1,23 +1,23 @@
 @extends('layouts.cinematic')
 
-@section('title', 'Terms — Easy Marriage Georgia')
-@section('description', 'Terms of use for the Easy Marriage Georgia website.')
-@section('canonical', url('/terms'))
+@section('title', __('site.legal.terms.title').' — Easy Marriage Georgia')
+@section('description', __('site.legal.terms.meta'))
+@section('canonical', locale_route('terms'))
 
 @section('body')
 @include('partials.chrome')
 <main class="legal" id="main">
-    <p class="chapter-kicker">Legal</p>
-    <h1 class="display">Terms</h1>
-    <p class="lede">This website provides information about marriage-registration support in Georgia. It is not legal advice and does not create a client relationship until we confirm an engagement with you in writing.</p>
+    <p class="chapter-kicker">{{ __('site.legal.kicker') }}</p>
+    <h1 class="display">{{ __('site.legal.terms.title') }}</h1>
+    <p class="lede">{{ __('site.legal.terms.lede') }}</p>
 
-    <h2>Accuracy</h2>
-    <p>Requirements for marriage in Georgia can depend on nationality and individual circumstances. Information on this site is general. Your exact path is confirmed during consultation.</p>
+    <h2>{{ __('site.legal.terms.accuracy_title') }}</h2>
+    <p>{{ __('site.legal.terms.accuracy') }}</p>
 
-    <h2>Enquiries</h2>
-    <p>Submitting the consultation form is a request for contact, not a booking or a guarantee of eligibility, timing, or outcome.</p>
+    <h2>{{ __('site.legal.terms.enquiries_title') }}</h2>
+    <p>{{ __('site.legal.terms.enquiries') }}</p>
 
-    <p><a class="text-link" href="{{ route('home') }}">Return home</a></p>
+    <p><a class="text-link" href="{{ locale_route('home') }}">{{ __('site.legal.home') }}</a></p>
 </main>
 @include('partials.footer')
 @include('partials.consult')

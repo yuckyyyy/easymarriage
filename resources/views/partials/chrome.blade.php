@@ -1,22 +1,18 @@
 <header class="nav" id="site-nav">
-    <a class="nav__logo" href="{{ route('home') }}" data-cursor="home">
-        <span>Easy Marriage</span>
-        <small>Georgia</small>
+    <a class="nav__logo" href="{{ locale_route('home') }}" data-cursor="home">
+        <span>{{ __('site.brand.name') }}</span>
+        <small>{{ __('site.brand.place') }}</small>
     </a>
 
-    <nav class="nav__links" aria-label="Primary">
-        <a href="{{ url('/') }}#about">About</a>
-        <a href="{{ url('/') }}#services">Services</a>
-        <a href="{{ url('/') }}#process">Process</a>
-        <a href="{{ url('/') }}#documents">Documents</a>
-        <a href="{{ url('/') }}#georgia">Why Georgia</a>
-        <a href="{{ url('/') }}#reviews">Reviews</a>
-        <a href="{{ url('/') }}#faq">FAQ</a>
+    <nav class="nav__links" aria-label="{{ __('site.nav.primary') }}">
+        @include('partials.nav-links')
     </nav>
 
     <div class="nav__end">
-        <button class="nav__cta btn btn--pill" type="button" data-open-consult data-cursor="open">Get Started</button>
-        <button class="nav__toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+        @include('partials.lang-switcher')
+        <button class="nav__cta btn btn--pill" type="button" data-open-consult data-cursor="open">{{ __('site.nav.cta') }}</button>
+        <button class="nav__toggle" type="button" aria-label="{{ __('site.nav.open_menu') }}" aria-controls="mobile-menu" aria-expanded="false">
+            <span></span>
             <span></span>
             <span></span>
         </button>
@@ -25,17 +21,13 @@
 
 <div class="mobile-menu" id="mobile-menu" hidden>
     <div class="mobile-menu__inner">
-        <p class="mobile-menu__kicker">Easy Marriage Georgia</p>
-        <nav class="mobile-menu__nav" aria-label="Mobile">
-            <a href="{{ url('/') }}#about" data-menu-link>About</a>
-            <a href="{{ url('/') }}#services" data-menu-link>Services</a>
-            <a href="{{ url('/') }}#process" data-menu-link>Process</a>
-            <a href="{{ url('/') }}#documents" data-menu-link>Documents</a>
-            <a href="{{ url('/') }}#georgia" data-menu-link>Why Georgia</a>
-            <a href="{{ url('/') }}#reviews" data-menu-link>Reviews</a>
-            <a href="{{ url('/') }}#faq" data-menu-link>FAQ</a>
+        <p class="mobile-menu__kicker">{{ __('site.brand.full') }}</p>
+        @include('partials.lang-switcher', ['full' => true])
+        <nav class="mobile-menu__nav" aria-label="{{ __('site.nav.mobile') }}">
+            @include('partials.nav-links', ['menu' => true])
         </nav>
-        <button class="btn btn--pill" type="button" data-open-consult>Get Started</button>
+        <button class="btn btn--pill" type="button" data-open-consult>{{ __('site.nav.cta') }}</button>
+        <button class="mobile-menu__close" type="button" data-close-menu>{{ __('site.nav.close_menu') }}</button>
     </div>
 </div>
 

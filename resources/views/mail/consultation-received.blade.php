@@ -1,14 +1,14 @@
 <x-mail::message>
-# New consultation request
+# {{ __('site.mail.heading') }}
 
-**Name:** {{ $consultation->name }}
-**Partner:** {{ $consultation->partner_name ?: '—' }}
-**Email:** {{ $consultation->email }}
-**Phone / WhatsApp:** {{ $consultation->phone ?: '—' }}
-**Nationality:** {{ $consultation->nationality ?: '—' }}
-**Preferred date:** {{ $consultation->preferred_date?->toFormattedDateString() ?: '—' }}
-**Guests:** {{ $consultation->guests ?? '—' }}
-**Looking for:** {{ $consultation->looking_for }}
+**{{ __('site.mail.name') }}:** {{ $consultation->name }}
+**{{ __('site.mail.partner') }}:** {{ $consultation->partner_name ?: '—' }}
+**{{ __('site.mail.email') }}:** {{ $consultation->email }}
+**{{ __('site.mail.phone') }}:** {{ $consultation->phone ?: '—' }}
+**{{ __('site.mail.nationality') }}:** {{ $consultation->nationality ?: '—' }}
+**{{ __('site.mail.date') }}:** {{ $consultation->preferred_date?->toFormattedDateString() ?: '—' }}
+**{{ __('site.mail.guests') }}:** {{ $consultation->guests ?? '—' }}
+**{{ __('site.mail.looking') }}:** {{ $consultation->looking_for }}
 
 {{ $consultation->message }}
 </x-mail::message>

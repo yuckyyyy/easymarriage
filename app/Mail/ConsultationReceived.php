@@ -13,14 +13,12 @@ class ConsultationReceived extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct(public Consultation $consultation)
-    {
-    }
+    public function __construct(public Consultation $consultation) {}
 
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New consultation request — Easy Marriage Georgia',
+            subject: __('site.mail.subject'),
             replyTo: [$this->consultation->email],
         );
     }

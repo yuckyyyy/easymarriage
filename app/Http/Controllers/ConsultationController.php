@@ -45,7 +45,7 @@ class ConsultationController extends Controller
 
         return response()->json([
             'ok' => true,
-            'message' => "We've got it.",
+            'message' => __('site.form.success_api'),
         ]);
     }
 }

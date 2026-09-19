@@ -31,10 +31,15 @@ export function initCursor() {
     });
 
     document.querySelectorAll('[data-cursor], a, button').forEach((el) => {
+        if (el.matches('.nav__toggle, .mobile-menu__close, .consult__close, .cursor')) {
+            return;
+        }
+
         el.addEventListener('mouseenter', () => {
             cursor.classList.add('is-hover');
             if (label) {
-                label.textContent = (el.getAttribute('data-cursor') || 'open').toUpperCase();
+                const key = el.getAttribute('data-cursor') || 'open';
+                label.textContent = (window.__I18N?.cursor?.[key] || key).toUpperCase();
             }
         });
         el.addEventListener('mouseleave', () => {

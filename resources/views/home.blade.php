@@ -6,11 +6,12 @@
     '@context' => 'https://schema.org',
     '@type' => 'ProfessionalService',
     'name' => 'Easy Marriage Georgia',
-    'url' => config('site.url'),
+    'url' => locale_route('home'),
     'image' => asset('images/cinematic/hero/signing.jpg'),
-    'description' => 'Marriage registration in Georgia for international couples. Often a single day at the House of Justice in Tbilisi — passports, apostille, and considered ceremony arrangements.',
+    'description' => __('site.meta.schema_description'),
     'areaServed' => 'Georgia',
-    'serviceType' => 'Marriage registration assistance',
+    'serviceType' => __('site.meta.schema_service'),
+    'inLanguage' => app()->getLocale(),
 ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
 </script>
 @endsection

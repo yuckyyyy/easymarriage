@@ -1,17 +1,17 @@
 @extends('layouts.cinematic')
 
-@section('title', 'Cookie Policy — Easy Marriage Georgia')
-@section('description', 'How Easy Marriage Georgia uses cookies on this website.')
-@section('canonical', url('/cookies'))
+@section('title', __('site.legal.cookies.title').' — Easy Marriage Georgia')
+@section('description', __('site.legal.cookies.meta'))
+@section('canonical', locale_route('cookies'))
 
 @section('body')
 @include('partials.chrome')
 <main class="legal" id="main">
-    <p class="chapter-kicker">Legal</p>
-    <h1 class="display">Cookie Policy</h1>
-    <p class="lede">This site uses essential cookies required for security (including form protection). We do not use advertising trackers.</p>
-    <p>If analytics are added later, this page will be updated to describe them.</p>
-    <p><a class="text-link" href="{{ route('home') }}">Return home</a></p>
+    <p class="chapter-kicker">{{ __('site.legal.kicker') }}</p>
+    <h1 class="display">{{ __('site.legal.cookies.title') }}</h1>
+    <p class="lede">{{ __('site.legal.cookies.lede') }}</p>
+    <p>{{ __('site.legal.cookies.later') }}</p>
+    <p><a class="text-link" href="{{ locale_route('home') }}">{{ __('site.legal.home') }}</a></p>
 </main>
 @include('partials.footer')
 @include('partials.consult')
