@@ -33,14 +33,14 @@
                 <span>04</span>
                 <h3>Registration</h3>
                 <div class="journey__shot">
-                    <img src="{{ asset('images/cinematic/passport/signature.jpg') }}" alt="" width="1920" height="1080">
+                    <img src="{{ asset('images/cinematic/hero/signing.jpg') }}" alt="" width="1920" height="1080">
                 </div>
             </li>
             <li>
                 <span>05</span>
                 <h3>Certificate</h3>
                 <div class="journey__shot">
-                    <img src="{{ asset('images/cinematic/passport/open.jpg') }}" alt="" width="1200" height="900">
+                    <img src="{{ asset('images/cinematic/passport/certificates.jpg') }}" alt="" width="1920" height="1080">
                 </div>
             </li>
             <li>

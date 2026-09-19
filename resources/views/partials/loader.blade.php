@@ -4,6 +4,6 @@
         <p class="loader__brand">Easy Marriage</p>
         <p class="loader__place">Georgia</p>
         <span class="loader__line"></span>
-        <p class="loader__line-copy">A simpler way to say “I do.”</p>
+        <p class="loader__line-copy">Married in Georgia. In a day.</p>
     </div>
 </div>

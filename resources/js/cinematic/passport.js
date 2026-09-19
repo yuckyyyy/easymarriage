@@ -1,5 +1,5 @@
 import gsap from 'gsap';
-import { EASE, reducedMotion } from './config';
+import { EASE, PIN, reducedMotion } from './config';
 
 export function initPassport() {
     const pin = document.getElementById('passport-pin');
@@ -50,40 +50,51 @@ export function initPassport() {
 
     gsap.set(cover, { rotateY: 0 });
     gsap.set(fly, { rotateY: 0 });
-    gsap.set(book, { rotateX: 14, rotateY: 18, rotateZ: -8, xPercent: 4, yPercent: 4, scale: 0.94 });
-    gsap.set(desk, { scale: 1.06 });
+    gsap.set(book, { rotateX: 10, rotateY: 22, rotateZ: -6, xPercent: 2, yPercent: 2, scale: 0.96 });
+    gsap.set(desk, { scale: 1.04 });
     gsap.set(doc, { opacity: 1 });
     gsap.set(pen, { xPercent: 8, yPercent: -18, opacity: 0, rotate: -28, scale: 0.94 });
     gsap.set(stamp, { scale: 1.6, opacity: 0, rotate: -22 });
     gsap.set(words, { opacity: 0, y: 28 });
-    gsap.set(shadow, { scaleX: 0.7, opacity: 0.2 });
+    gsap.set(shadow, { scaleX: 0.75, opacity: 0.28 });
 
-    const mobile = window.matchMedia('(max-width: 1080px)').matches;
+    // Page edge stays leather-toned until cover starts opening
+    const block = pin.querySelector('.pbook__block');
+    if (block) {
+        gsap.set(block, { background: 'linear-gradient(90deg, #2a1218, #4a1a24 40%, #1a0a0e)' });
+    }
+
+    const distance = () => {
+        const mobile = window.matchMedia('(max-width: 1080px)').matches;
+        return Math.round(window.innerHeight * (mobile ? 2.2 : 2.55));
+    };
 
     const tl = gsap.timeline({
-        defaults: { ease: EASE.cinematic },
+        defaults: { ease: 'none' },
         scrollTrigger: {
             trigger: pin,
             start: 'top top',
-            end: `+=${mobile ? 3400 : 4400}`,
-            pin: true,
-            scrub: 0.7,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
+            end: () => `+=${distance()}`,
+            ...PIN,
         },
     });
 
     tl.to(desk, { scale: 1, duration: 0.1 }, 0)
-        .to(book, { rotateX: 8, rotateY: 6, rotateZ: -2, xPercent: 0, yPercent: 0, scale: 1, duration: 0.12 }, 0)
-        .to(shadow, { scaleX: 1, opacity: 0.4, duration: 0.12 }, 0)
-        .to(cover, { rotateY: -158, duration: 0.3 }, 0.1)
-        .to(book, { rotateY: 0, rotateZ: 0, duration: 0.3 }, 0.1)
-        .to(shadow, { scaleX: 1.55, xPercent: -28, opacity: 0.48, duration: 0.3 }, 0.1)
-        .to(fly, { rotateY: -24, duration: 0.08 }, 0.4)
+        .to(book, { rotateX: 6, rotateY: 8, rotateZ: -2, xPercent: 0, yPercent: 0, scale: 1, duration: 0.12 }, 0)
+        .to(shadow, { scaleX: 1, opacity: 0.45, duration: 0.12 }, 0)
+        .to(cover, { rotateY: -158, duration: 0.3, ease: EASE.cinematic }, 0.1)
+        .to(book, { rotateY: 0, rotateZ: 0, duration: 0.3, ease: EASE.cinematic }, 0.1)
+        .to(shadow, { scaleX: 1.55, xPercent: -28, opacity: 0.52, duration: 0.3 }, 0.1);
+
+    if (block) {
+        tl.to(block, { background: 'repeating-linear-gradient(180deg, #efe6d4 0 2px, #d9ccb4 2px 3px)', duration: 0.12 }, 0.18);
+    }
+
+    tl.to(fly, { rotateY: -24, duration: 0.08 }, 0.4)
         .to(fly, { rotateY: -162, duration: 0.16 }, 0.48)
         .to(pen, { xPercent: -6, yPercent: 22, opacity: 1, rotate: -14, scale: 1, duration: 0.08 }, 0.64)
-        .to(pen, { x: 70, y: 28, rotate: -6, duration: 0.2, ease: 'none' }, 0.7)
-        .to(signature, { strokeDashoffset: 0, duration: 0.2, ease: 'none' }, 0.7)
+        .to(pen, { x: 70, y: 28, rotate: -6, duration: 0.2 }, 0.7)
+        .to(signature, { strokeDashoffset: 0, duration: 0.2 }, 0.7)
         .to(pen, { xPercent: 10, yPercent: 10, opacity: 0, duration: 0.08 }, 0.88)
         .to(stamp, { opacity: 1, scale: 1, rotate: -11, duration: 0.08 }, 0.88);
 

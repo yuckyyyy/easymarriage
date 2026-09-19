@@ -6,6 +6,6 @@
             <span class="split-line">shouldn’t come with</span>
             <span class="split-line">a complicated process.</span>
         </h2>
-        <p class="story__after italic-line">That’s why we made marriage in Georgia simple.</p>
+        <p class="story__after italic-line">For international couples, marriage in Georgia can be done in a day.</p>
     </div>
 </section>

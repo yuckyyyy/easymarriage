@@ -9,7 +9,6 @@
         <figure class="reviews__quote">
             <blockquote id="review-quote">Everything felt incredibly simple. We arrived, followed the steps, and suddenly we were married.</blockquote>
             <figcaption id="review-name">— Anna &amp; Michael</figcaption>
-            <p class="reviews__note" id="review-note">Placeholder story — replace with a real couple quote when available.</p>
         </figure>
     </div>
 

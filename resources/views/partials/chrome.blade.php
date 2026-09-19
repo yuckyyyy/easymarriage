@@ -16,12 +16,6 @@
 
     <div class="nav__end">
         <button class="nav__cta btn btn--pill" type="button" data-open-consult data-cursor="open">Get Started</button>
-        <div class="lang">
-            <button class="lang__btn" type="button" aria-expanded="false" aria-haspopup="listbox" aria-label="Language">EN</button>
-            <ul class="lang__menu" role="listbox" hidden>
-                <li role="option" aria-selected="true">EN</li>
-            </ul>
-        </div>
         <button class="nav__toggle" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
             <span></span>
             <span></span>

@@ -4,23 +4,38 @@ import { EASE, reducedMotion } from './config';
 import { inners } from './split';
 
 export function fadeUp(targets, vars = {}) {
-    if (reducedMotion) {
-        gsap.set(targets, { clearProps: 'all', opacity: 1, y: 0 });
+    const els = gsap.utils.toArray(targets);
+
+    if (!els.length) {
         return;
     }
 
-    gsap.from(targets, {
-        y: 48,
-        opacity: 0,
-        duration: 1.2,
-        ease: EASE.reveal,
-        stagger: 0.08,
-        scrollTrigger: {
-            trigger: vars.trigger || targets,
-            start: 'top 82%',
+    if (reducedMotion) {
+        gsap.set(els, { clearProps: 'all', opacity: 1, y: 0 });
+        return;
+    }
+
+    const { trigger, ...rest } = vars;
+
+    gsap.fromTo(
+        els,
+        { y: 32, opacity: 0 },
+        {
+            y: 0,
+            opacity: 1,
+            duration: 0.85,
+            ease: EASE.reveal,
+            stagger: 0.07,
+            overwrite: 'auto',
+            scrollTrigger: {
+                trigger: trigger || els[0],
+                start: 'top 76%',
+                toggleActions: 'play none none none',
+                once: true,
+            },
+            ...rest,
         },
-        ...vars,
-    });
+    );
 }
 
 export function revealLines(container) {
@@ -40,51 +55,61 @@ export function revealLines(container) {
         { y: '110%' },
         {
             y: '0%',
-            duration: 1.15,
+            duration: 1,
             ease: EASE.reveal,
-            stagger: 0.12,
+            stagger: 0.1,
+            overwrite: 'auto',
             scrollTrigger: {
                 trigger: container,
-                start: 'top 78%',
+                start: 'top 72%',
+                toggleActions: 'play none none none',
+                once: true,
             },
         },
     );
 }
 
 export function clipReveal(targets) {
-    if (reducedMotion) {
-        gsap.set(targets, { clipPath: 'inset(0% 0% 0% 0%)', scale: 1 });
+    const els = gsap.utils.toArray(targets);
+
+    if (!els.length) {
         return;
     }
 
-    gsap.fromTo(
-        targets,
-        { clipPath: 'inset(18% 12% 18% 12%)', scale: 1.08, filter: 'blur(8px)' },
-        {
-            clipPath: 'inset(0% 0% 0% 0%)',
-            scale: 1,
-            filter: 'blur(0px)',
-            ease: EASE.film,
-            scrollTrigger: {
-                trigger: targets,
-                start: 'top 90%',
-                end: 'top 30%',
-                scrub: 1,
+    if (reducedMotion) {
+        gsap.set(els, { clipPath: 'inset(0% 0% 0% 0%)', scale: 1 });
+        return;
+    }
+
+    els.forEach((el) => {
+        gsap.fromTo(
+            el,
+            { clipPath: 'inset(12% 8% 12% 8%)', scale: 1.06 },
+            {
+                clipPath: 'inset(0% 0% 0% 0%)',
+                scale: 1,
+                ease: EASE.film,
+                scrollTrigger: {
+                    trigger: el,
+                    start: 'top 88%',
+                    end: 'top 36%',
+                    scrub: true,
+                },
             },
-        },
-    );
+        );
+    });
 }
 
-export function parallaxImage(img, amount = 80) {
+export function parallaxImage(img, amount = 48) {
     if (reducedMotion || !img) {
         return;
     }
 
     gsap.fromTo(
         img,
-        { y: -amount * 0.3 },
+        { y: -amount * 0.25 },
         {
-            y: amount,
+            y: amount * 0.55,
             ease: EASE.film,
             scrollTrigger: {
                 trigger: img.parentElement,
@@ -121,16 +146,16 @@ export function scaleReveal(el) {
 
     gsap.fromTo(
         el,
-        { scale: 0.92, opacity: 0.4 },
+        { scale: 0.94, opacity: 0.45 },
         {
             scale: 1,
             opacity: 1,
             ease: EASE.film,
             scrollTrigger: {
                 trigger: el,
-                start: 'top 85%',
-                end: 'top 40%',
-                scrub: 1,
+                start: 'top 82%',
+                end: 'top 42%',
+                scrub: true,
             },
         },
     );

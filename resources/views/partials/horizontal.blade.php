@@ -11,18 +11,18 @@
             </article>
             <article class="horizontal__chapter">
                 <p class="horizontal__label">Chapter 02</p>
-                <h2 class="display">The Moment</h2>
-                <p>A ring. A breath. A promise made small enough to hold.</p>
+                <h2 class="display">The Hall</h2>
+                <p>The House of Justice. One room. One hour. The official act.</p>
                 <div class="horizontal__frame">
-                    <img src="{{ asset('images/cinematic/hero/ring-scene.jpg') }}" alt="A ring being placed on a gloved hand" width="1920" height="1080">
+                    <img src="{{ asset('images/cinematic/georgia/house-of-justice.jpg') }}" alt="The House of Justice in Tbilisi" width="1920" height="1080">
                 </div>
             </article>
             <article class="horizontal__chapter">
                 <p class="horizontal__label">Chapter 03</p>
                 <h2 class="display">The Signature</h2>
-                <p>Ink on paper. The private made official.</p>
+                <p>Ink on paper. The private made official — often in a single day.</p>
                 <div class="horizontal__frame">
-                    <img src="{{ asset('images/cinematic/passport/signature.jpg') }}" alt="Signing a marriage document" width="1920" height="1080">
+                    <img src="{{ asset('images/cinematic/hero/signing.jpg') }}" alt="Signing a marriage document" width="1920" height="1080">
                 </div>
             </article>
             <article class="horizontal__chapter">

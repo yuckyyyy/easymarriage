@@ -1,4 +1,4 @@
-import gsap from 'gsap';
+import { cinematicScrollTo } from './smooth';
 
 export function initNav() {
     const nav = document.getElementById('site-nav');
@@ -58,12 +58,7 @@ export function initNav() {
                 return;
             }
             event.preventDefault();
-            gsap.to(window, {
-                duration: 1.15,
-                scrollTo: { y: target, offsetY: 0 },
-                ease: 'power2.inOut',
-                overwrite: 'auto',
-            });
+            cinematicScrollTo(target);
         });
     });
 }

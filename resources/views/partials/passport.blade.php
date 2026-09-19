@@ -34,13 +34,19 @@
                 </div>
                 <div class="pbook__cover">
                     <div class="pbook__front">
-                        <img
-                            class="pbook__leather"
-                            src="{{ asset('images/cinematic/passport/cover-face.jpg') }}"
-                            alt=""
-                            width="505"
-                            height="880"
-                        >
+                        <span class="pbook__grain" aria-hidden="true"></span>
+                        <span class="pbook__foil" aria-hidden="true"></span>
+                        <svg class="pbook__crest" viewBox="0 0 120 140" aria-hidden="true">
+                            <g fill="none" stroke="currentColor" stroke-width="1.2">
+                                <path d="M60 12 L78 28 L78 52 C78 78 60 96 60 108 C60 96 42 78 42 52 L42 28 Z"/>
+                                <circle cx="60" cy="48" r="10"/>
+                                <path d="M52 48 L60 40 L68 48 L60 56 Z"/>
+                                <path d="M40 62 C48 70, 52 78, 60 86 C68 78, 72 70, 80 62"/>
+                                <path d="M46 28 L60 18 L74 28"/>
+                            </g>
+                            <text x="60" y="128" text-anchor="middle" fill="currentColor" font-size="7" letter-spacing="2.4" font-family="serif">GEORGIA</text>
+                        </svg>
+                        <span class="pbook__title">Passport</span>
                     </div>
                     <div class="pbook__lining"></div>
                 </div>
@@ -56,8 +62,8 @@
         </div>
 
         <div class="film__words">
+            <p class="pass-scene__word">One day.</p>
             <p class="pass-scene__word">Official.</p>
-            <p class="pass-scene__word">Simple.</p>
             <p class="pass-scene__word">Done.</p>
         </div>
     </div>

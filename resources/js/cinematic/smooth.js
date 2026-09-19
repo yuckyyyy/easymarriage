@@ -12,13 +12,16 @@ export function initSmooth() {
     }
 
     lenis = new Lenis({
-        duration: 1.05,
+        duration: 1.15,
+        lerp: 0.078,
         smoothWheel: true,
-        wheelMultiplier: 0.88,
-        touchMultiplier: 1.1,
+        wheelMultiplier: 0.68,
+        touchMultiplier: 0.95,
+        syncTouch: false,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
+
     gsap.ticker.add((time) => {
         lenis.raf(time * 1000);
     });

@@ -33,10 +33,14 @@ class ConsultationController extends Controller
 
         $consultation = Consultation::create($data);
 
-        $notify = config('site.email');
+        $notify = config('site.notify_email') ?: config('site.email');
 
         if (is_string($notify) && $notify !== '' && config('mail.default') !== 'log') {
-            Mail::to($notify)->send(new ConsultationReceived($consultation));
+            try {
+                Mail::to($notify)->send(new ConsultationReceived($consultation));
+            } catch (\Throwable $e) {
+                report($e);
+            }
         }
 
         return response()->json([

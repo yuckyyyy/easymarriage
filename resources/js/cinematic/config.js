@@ -9,11 +9,20 @@ export const EASE = {
     film: 'none',
 };
 
+export const PIN = {
+    pin: true,
+    pinSpacing: true,
+    anticipatePin: 1,
+    invalidateOnRefresh: true,
+    scrub: 0.7,
+    fastScrollEnd: false,
+};
+
 export const CHAPTERS = [
     { id: '01', name: 'The Promise', selector: '#hero' },
     { id: '02', name: 'The Paperwork', selector: '#about' },
-    { id: '03', name: 'Georgia', selector: '#georgia' },
-    { id: '04', name: 'The Journey', selector: '#journey-film' },
+    { id: '03', name: 'Georgia', selector: '#georgia-journey' },
+    { id: '04', name: 'The Journey', selector: '#georgia-journey' },
     { id: '05', name: 'The Signature', selector: '#services' },
     { id: '06', name: 'Your Story', selector: '#reviews' },
     { id: '07', name: 'Begin', selector: '#begin' },

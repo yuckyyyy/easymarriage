@@ -9,7 +9,7 @@
                 <span aria-hidden="true"></span>
             </button>
             <div class="faq__body">
-                <p>Timing depends on your documents, nationality, and the appointments available. Some couples move through the process in a short visit; others need longer for papers to be prepared. We will give you a realistic window once we have reviewed your circumstances — not a promise before we know them.</p>
+                <p>When the papers are in order, registration itself can be completed in a day. The certificate follows in one to two days; apostille a little after that. We give you a realistic window once we have reviewed your circumstances — not a promise before we know them.</p>
             </div>
         </article>
         <article class="faq__item">
@@ -27,7 +27,7 @@
                 <span aria-hidden="true"></span>
             </button>
             <div class="faq__body">
-                <p>It varies. Passports are always central; civil-status papers, translations, and legalization or apostille may be required depending on nationality. Your exact list is confirmed with you personally.</p>
+                <p>Passports are central — and for many couples, sufficient. Civil-status papers, translations, and apostille may still be required depending on nationality. Your exact list is confirmed with you personally.</p>
             </div>
         </article>
         <article class="faq__item">
@@ -36,7 +36,7 @@
                 <span aria-hidden="true"></span>
             </button>
             <div class="faq__body">
-                <p>Many international couples marry in Georgia. Eligibility still depends on the documents you hold and the rules that apply to your nationality. We review this with you before any travel is arranged.</p>
+                <p>Yes. Georgia is straightforward for most international guests, and many need no visa to arrive. Eligibility still depends on the documents you hold. We review this with you before any travel is arranged.</p>
             </div>
         </article>
         <article class="faq__item">

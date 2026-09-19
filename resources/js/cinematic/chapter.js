@@ -4,13 +4,16 @@ import { reducedMotion } from './config';
 import { fadeUp, revealLines, clipReveal, parallaxImage, scaleReveal } from './reveal';
 
 export function initChapters() {
-    revealLines(document.querySelector('.story__copy'));
+    const storyCopy = document.querySelector('.story__copy');
+
+    revealLines(storyCopy);
     fadeUp('.story__after');
 
     document.querySelectorAll('.timeline li').forEach((item) => {
         ScrollTrigger.create({
             trigger: item,
-            start: 'top 70%',
+            start: 'top 68%',
+            end: 'bottom 40%',
             onEnter: () => item.classList.add('is-active'),
             onEnterBack: () => item.classList.add('is-active'),
             onLeaveBack: () => item.classList.remove('is-active'),
@@ -19,28 +22,7 @@ export function initChapters() {
 
     fadeUp('.process__intro, .process__list li');
 
-    const georgia = document.querySelector('.georgia');
-    if (georgia && !reducedMotion) {
-        const back = georgia.querySelector('.georgia__img--back img');
-        const mid = georgia.querySelector('.georgia__img--mid');
-        const fore = georgia.querySelector('.georgia__img--fore');
-
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: georgia,
-                start: 'top top',
-                end: '+=2200',
-                scrub: 1,
-                pin: true,
-                anticipatePin: 1,
-            },
-        })
-            .to(back, { yPercent: 12, scale: 1.08, ease: 'none' }, 0)
-            .to(mid, { opacity: 0.9, yPercent: -6, ease: 'none' }, 0.25)
-            .to(fore, { opacity: 0.55, yPercent: -10, ease: 'none' }, 0.55);
-    }
-
-    fadeUp('.georgia__copy, .georgia__facts li');
+    // Georgia + Arrival film is driven by initHorizontal() as one continuous pin.
 
     const journey = document.getElementById('journey-line');
     if (journey && !reducedMotion) {
@@ -50,9 +32,9 @@ export function initChapters() {
 
         ScrollTrigger.create({
             trigger: journey,
-            start: 'top 70%',
-            end: 'bottom 40%',
-            scrub: true,
+            start: 'top 62%',
+            end: 'bottom 48%',
+            scrub: 0.65,
             onUpdate: (self) => {
                 const p = self.progress;
                 if (grow) {
@@ -62,7 +44,7 @@ export function initChapters() {
                     glow.style.left = `${p * 100}%`;
                 }
                 steps.forEach((step, index) => {
-                    step.classList.toggle('is-on', p >= index / (steps.length - 0.4));
+                    step.classList.toggle('is-on', p >= index / (steps.length - 0.35));
                 });
             },
         });
@@ -70,7 +52,7 @@ export function initChapters() {
 
     document.querySelectorAll('.gallery__shot img, .gallery__full img').forEach((img) => {
         clipReveal(img);
-        parallaxImage(img, 40);
+        parallaxImage(img, 28);
     });
 
     scaleReveal(document.querySelector('.finale__copy'));
@@ -78,16 +60,16 @@ export function initChapters() {
     if (!reducedMotion) {
         gsap.fromTo(
             '.finale__visual img',
-            { scale: 1.15, opacity: 0.12 },
+            { scale: 1.12, opacity: 0.16 },
             {
                 scale: 1,
                 opacity: 0.42,
                 ease: 'none',
                 scrollTrigger: {
                     trigger: '#begin',
-                    start: 'top 80%',
-                    end: 'top 10%',
-                    scrub: 1,
+                    start: 'top 78%',
+                    end: 'top 18%',
+                    scrub: true,
                 },
             },
         );
